@@ -9,7 +9,7 @@ class MySprite(pygame.sprite.Sprite):
     """Loads the moveable character information"""
 
     def __init__(self):
-        super(MySprite, self).__init__()
+        super().__init__()
         self.main_image = None
         self.columns = 0
         self.frame_num = 0
@@ -55,7 +55,7 @@ class MyWalls(pygame.sprite.Sprite):
     """Class for handling the walls and doors in the game"""
     
     def __init__(self):
-        super(MyWalls, self).__init__()
+        super().__init__()
         self.image = None
         self.pos_x = 0
         self.pos_y = 0
@@ -101,7 +101,7 @@ def wall_collisions(direction, sprite1, sprite2):
     """Handles collision detection between the player and the walls"""
 
     ouchie = pygame.sprite.spritecollideany(sprite1, sprite2)
-    if ouchie != None:
+    if ouchie is not None:
         if sprite1.rect.colliderect(ouchie.rect):
             if direction == 3:
                 sprite1.rect.right = ouchie.rect.left
