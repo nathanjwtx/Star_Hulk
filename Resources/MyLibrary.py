@@ -1,4 +1,4 @@
-#MyLibrary.py
+# MyLibrary.py
 
 import pygame
 from pygame.locals import *
@@ -18,14 +18,14 @@ class MySprite(pygame.sprite.Sprite):
         self.width = 0
         self.height = 0
 
-#X property
+# X property
     def _getx(self):
         return self.rect.x
     def _setx(self, value):
         self.rect.x = value
     X = property(_getx, _setx)
     
-#Y property
+# Y property
     def _gety(self):
         return self.rect.y
     def _sety(self, value):
@@ -62,14 +62,14 @@ class MyWalls(pygame.sprite.Sprite):
         self.width = 0
         self.height = 0
         
-#X property
+# X property
     def _getx(self):
         return self.rect.x
     def _setx(self, value):
         self.rect.x = value
     X = property(_getx, _setx)
     
-#Y property
+# Y property
     def _gety(self):
         return self.rect.y
     def _sety(self, value):
@@ -87,7 +87,7 @@ class MyWalls(pygame.sprite.Sprite):
     def update(self, pos_x, pos_y, width, height):
         self.rect = Rect(pos_x, pos_y, width, height)
      
-#not working correctly at the moment
+# not working correctly at the moment
 def column_check(current_column, columns):
     """loop for the sprite image to display"""
     index_x = 0

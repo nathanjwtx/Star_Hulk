@@ -1,32 +1,33 @@
-#based on "spritesheet1 group - WORKING.py"
-#moves in all directions and stops at screen edge. loop reset not in class
-#collides with, and stops at, walls
+""" based on "spritesheet1 group - WORKING.py"
+moves in all directions and stops at screen edge. loop reset not in class
+collides with, and stops at, walls
+"""
 
 import sys, os, pygame
 from Resources.MyLibrary import wall_collisions
 from Resources.MyLibrary import MySprite, MyWalls
 from pygame.locals import *
 
-#Position variables
+# Position variables
 new_x = 0
 new_y = 0
 vel_x = 100
 init_x = 100
 init_y = 300
 
-#Key variables
+# Key variables
 key_right = False
 key_left = False
 key_up = False
 key_down = False
 
-#Frame variables
+# Frame variables
 columns = 7
 current_column = 0
 direction = 0
 index_x = 1
 
-#Image & variables
+# Image & variables
 image_width = 700
 image_height = 400
 screen_width = 1000
@@ -37,11 +38,11 @@ pygame.key.set_repeat()
 screen = pygame.display.set_mode((screen_width, screen_height))
 grid1 = pygame.image.load(os.path.join("images", "1000x600Grid.bmp")).convert_alpha()
 
-#Groups
+# Groups
 player_grp = pygame.sprite.Group()
 walls_grp = pygame.sprite.Group()
 
-#Sprites
+# Sprites
 warrior1 = MySprite()
 soldier = os.path.join("images", "warrior.png")
 warrior1.load(soldier, image_width, image_height, 0, 0, columns)
@@ -55,7 +56,7 @@ wall2.load(wall_img1, 100, 100, 400, 300)
 walls_grp.add(wall1)
 walls_grp.add(wall2)
 
-#Starting position
+# Starting position
 warrior1.X = init_x
 warrior1.Y = init_y
 
