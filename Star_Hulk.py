@@ -7,6 +7,7 @@ import sys, os, pygame
 from Resources.MyLibrary import wall_collisions
 from Resources.MyLibrary import MySprite, MyWalls
 from pygame.locals import *
+from datetime import datetime, timedelta
 
 # Position variables
 new_x = 0
@@ -20,6 +21,7 @@ key_right = False
 key_left = False
 key_up = False
 key_down = False
+key_space = False
 
 # Frame variables
 columns = 7
@@ -73,6 +75,8 @@ while True:
                 key_up = True
             elif event.key == pygame.K_DOWN:
                 key_down = True
+            elif event.key == pygame.K_SPACE:
+                key_space = True
 
     keys = pygame.key.get_pressed()
     if keys[K_ESCAPE]:
@@ -125,6 +129,16 @@ while True:
         current_column += index_x
         direction = 0
         key_down = False
+    if key_space:
+        start = datetime.now()
+        stop = timedelta(seconds=1)
+        fontObj = pygame.font.Font("comic.ttf", 32)
+        textObj = fontObj.render("BANG", True, (255, 0, 0))
+        text_rect = textObj.get_rect()
+        text_rect.center = (200, 150)
+        screen.blit(textObj, text_rect.center)
+        if datetime.now() < (start + stop):
+            pygame.display.update()
 
     screen.blit(grid1, (0, 0))
 
